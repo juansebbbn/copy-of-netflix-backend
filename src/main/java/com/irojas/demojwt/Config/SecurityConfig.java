@@ -32,6 +32,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/images/**").permitAll() // 👈 Esto es lo que necesitás
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
@@ -42,6 +43,7 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 
 
 }
